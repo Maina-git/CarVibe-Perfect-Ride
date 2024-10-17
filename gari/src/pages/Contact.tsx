@@ -2,35 +2,34 @@ import React from 'react';
 
 const Contact: React.FC = () => {
   return (
-    <div className="w-full h-[120vh] flex flex-col justify-center items-center bg-blue-950">
-    
-      <h1 className="my-10 p-3 text-3xl font-bold text-white border-[3px] border-white">
+    <div className="w-full h-auto min-h-[120vh] flex flex-col justify-center items-center bg-blue-950 p-5">
+      
+      <h1 className="my-10 p-3 text-3xl md:text-4xl font-bold text-white border-[3px] border-white">
         Car Vibe
       </h1>
 
-    
-      <div className="text-gray-300 px-10 py-5 text-center text-sm max-w-2xl">
-        At <span className="font-bold text-white">Car Vibe</span>, we are dedicated to delivering the most accurate and visually stunning 
-        representation of vehicles. Whether you're browsing for your dream car or exploring the latest models, our platform is designed 
-        to provide a seamless experience with high-quality images that capture every detail. We go beyond just looks—each image is paired 
+      <div className="text-gray-300 px-5 md:px-10 py-5 text-center text-sm md:text-base lg:text-lg max-w-2xl">
+        At <span className="font-bold text-white">Car Vibe</span>, we are dedicated to delivering the most accurate and visually stunning
+        representation of vehicles. Whether you're browsing for your dream car or exploring the latest models, our platform is designed
+        to provide a seamless experience with high-quality images that capture every detail. We go beyond just looks—each image is paired
         with comprehensive information, so you can explore key features, specs, and options with ease.
       </div>
 
-  
-      <div className="flex flex-col gap-10 justify-center items-center w-full">
-        <h2 className="text-white text-2xl border-[2px] border-white p-2">About Me</h2>
+      <div className="flex flex-col gap-10 justify-center items-center w-full mt-10">
+        <h2 className="text-white text-2xl md:text-3xl border-[2px] border-white p-2">About Me</h2>
 
         <div className="flex flex-col md:flex-row items-center gap-10 px-5 w-full max-w-4xl">
-      
+          
           <div className="flex justify-center">
-            <img 
-              className="h-[200px] w-[200px] object-cover rounded-full shadow-lg" 
-              src="/images/WhatsApp Image 2024-10-08 at 21.25.50_22f0cb24.jpg" 
-              alt="Profile" 
+            <img
+              className="h-[150px] w-[150px] md:h-[200px] md:w-[200px] lg:h-[250px] lg:w-[250px] object-cover rounded-full shadow-lg"
+              src="/images/WhatsApp Image 2024-10-08 at 21.25.50_22f0cb24.jpg"
+              alt="Profile"
             />
           </div>
 
-          <div className="text-gray-300 text-[14px] w-full md:w-[60%] leading-relaxed bg-blue-900 p-5 rounded-lg shadow-lg">
+      
+          <div className="text-gray-300 text-[14px] md:text-base lg:text-lg w-full md:w-[60%] leading-relaxed bg-blue-900 p-5 rounded-lg shadow-lg">
             <p>
               Hi, I'm Francis, a passionate web developer who thrives on creativity and problem-solving. What excites me the most about web development is the perfect blend of technical challenges and artistic expression. From writing clean code to designing intuitive user interfaces, every step fuels my passion for the craft.
             </p>
@@ -48,7 +47,6 @@ const Contact: React.FC = () => {
 };
 
 export default Contact;
-
 
 
 

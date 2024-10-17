@@ -1,38 +1,39 @@
-import React from 'react'
-import Login from './pages/Login'
-import { useState } from 'react'
-import Home from './pages/Home'
-import {BrowserRouter as Router ,Routes, Route} from "react-router-dom"
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import Gallery from './pages/Gallery'
-import Contact from './pages/Contact'
-import SignOut from './pages/SignOut'
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './pages/Login';
+import Home from './pages/Home';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Gallery from './pages/Gallery';
+import Contact from './pages/Contact';
+import SignOut from './pages/SignOut';
 
-const App:React.FC = () => {
+const App: React.FC = () => {
+  const [isAuth, setIsAuth] = useState<boolean>(() => {
+    return localStorage.getItem('isAuth') === 'true';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('isAuth', String(isAuth));
+  }, [isAuth]);
 
 
-const [isAuth, setIsAuth]=useState<any>(localStorage.getItem("isAuth", true));
+  if (!isAuth) {
+    return <Login setIsAuth={setIsAuth} />;
+  }
 
-if(!isAuth){
   return (
-    <div>
-      <Login setIsAuth={setIsAuth}/>
-    </div>
-  )
-}return (
-  <>
-<Router>
-  <Navbar/>
-  <Routes>
-    <Route path="/" element={<Home/>}/>
-    <Route path="/gallery" element={<Gallery/>}/>
-    <Route  path="/contact" element={<Contact/>} />
-    <Route  path="/signOut" element={ <SignOut setIsAuth={setIsAuth}/>}/>
-  </Routes>
-  <Footer/>
-</Router>
-</>
-)
-}
-export default App
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/signOut" element={<SignOut setIsAuth={setIsAuth} />} />
+      </Routes>
+      <Footer />
+    </Router>
+  );
+};
+
+export default App;

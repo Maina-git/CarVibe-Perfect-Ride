@@ -17,7 +17,6 @@ const Gallery: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Fetch images from Firestore
   useEffect(() => {
     const fetchImages = async () => {
       try {
@@ -25,8 +24,8 @@ const Gallery: React.FC = () => {
         const imageList = querySnapshot.docs.map(doc => ({
           id: doc.id,
           url: doc.data().url,
-          likes: doc.data().likes || 0,    // Ensure likes are initialized
-          likedByMe: false                 // Default to false (not liked)
+          likes: doc.data().likes || 0,   
+          likedByMe: false                 
         }));
         setImages(imageList);
       } catch (err) {
@@ -39,7 +38,6 @@ const Gallery: React.FC = () => {
     fetchImages();
   }, []);
 
-  // Handle the like functionality
   const handleLike = async (id: string, likes: number, likedByMe: boolean) => {
     const updatedImages = images.map((img) =>
       img.id === id
@@ -48,22 +46,18 @@ const Gallery: React.FC = () => {
     );
     setImages(updatedImages);
 
-    // Update Firestore likes field
     const imageDocRef = doc(db, 'images', id);
     await updateDoc(imageDocRef, { likes: likedByMe ? likes - 1 : likes + 1 });
   };
 
-  // Handle the image download functionality
   const handleDownload = async (imageUrl: string) => {
     try {
-      // Check if the imageUrl is a valid URL
       if (imageUrl.startsWith('http')) {
         const a = document.createElement('a');
         a.href = imageUrl;
         a.download = 'downloaded_image.jpg';
         a.click();
       } else {
-        // Otherwise, fetch the download URL from Firebase Storage
         const storageRef = ref(storage, imageUrl);
         const downloadUrl = await getDownloadURL(storageRef);
 
@@ -99,23 +93,22 @@ const Gallery: React.FC = () => {
 
   return (
     <div className="h-screen w-full bg-gray-200">
-      <div style={{ scrollbarWidth: "none" }} className="grid grid-cols-2 justify-center items-center w-full h-screen overflow-y-scroll">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 gap-5 p-3 sm:p-5 overflow-y-scroll h-[80vh]">
         {images.map((image) => (
-          <div className="w-[95%] m-3 rounded-[10px]" key={image.id}>
+          <div className="w-full sm:w-[90%] lg:w-[80%] m-3 rounded-[10px]" key={image.id}>
             <img
               src={image.url}
               alt={`Uploaded ${image.id}`}
-              className="w-full bg-cover"
+              className="w-full h-48 sm:h-64 lg:h-80 object-cover rounded"
             />
-            <nav className="w-full h-[10%] p-2 flex justify-between px-5">
-              <button className="bg-blue-950 text-white text-xs px-5 py-1 rounded" onClick={() => handleDownload(image.url)}>
+            <nav className="w-full h-auto p-2 flex justify-between items-center px-3 sm:px-5">
+              <button className="bg-blue-950 text-white text-xs sm:text-sm px-4 py-1 rounded" onClick={() => handleDownload(image.url)}>
                 Download
               </button>
-              
-              {/* Like button with proper icon rendering */}
-              <button onClick={() => handleLike(image.id, image.likes, image.likedByMe)}>
-                {image.likedByMe ? <FcLike className="text-3xl" /> : <CiHeart className="text-3xl" />}
-                <span>{image.likes}</span>
+
+              <button onClick={() => handleLike(image.id, image.likes, image.likedByMe)} className="flex items-center space-x-1">
+                {image.likedByMe ? <FcLike className="text-2xl sm:text-3xl" /> : <CiHeart className="text-2xl sm:text-3xl" />}
+                <span className="text-xs sm:text-sm">{image.likes}</span>
               </button>
             </nav>
           </div>

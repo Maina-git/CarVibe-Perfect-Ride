@@ -43,16 +43,16 @@ const Login: React.FC<LoginProps> = ({ setIsAuth }) => {
   const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfirmPassword);
 
   return (
-    <div className="w-full flex flex-col justify-center items-center h-screen bg-blue-950">
-      <span className="text-white text-xl"><FaCarAlt /></span>
-      <p className="text-xs text-white my-2">Car Vibe.</p>
-      <div className="w-[500px] shadow-lg rounded-[10px] text-center bg-white">
-        <h1 className="font-bold text-blue-950 text-4xl py-3">Sign In</h1>
+    <div className="w-full flex flex-col justify-center items-center h-screen bg-blue-950 px-4">
+      <span className="text-white text-3xl md:text-4xl lg:text-5xl"><FaCarAlt /></span>
+      <p className="text-xs md:text-sm lg:text-base text-white my-2">Car Vibe.</p>
+      <div className="w-full max-w-xs md:max-w-md lg:max-w-lg shadow-lg rounded-[10px] text-center bg-white p-6">
+        <h1 className="font-bold text-blue-950 text-2xl md:text-3xl lg:text-4xl py-3">Sign In</h1>
         <form onSubmit={handleLogin}>
           {error && <span className="text-red-500 text-xs">Something went wrong</span>}
           
-          <div className="flex flex-col w-full px-10 my-5 text-left">
-            <label htmlFor="email" className="text-[15px] my-2 text-blue-950">Email</label>
+          <div className="flex flex-col w-full my-5 text-left">
+            <label htmlFor="email" className="text-[14px] md:text-[15px] lg:text-[16px] my-2 text-blue-950">Email</label>
             <input
               type="text"
               id="email"
@@ -62,8 +62,8 @@ const Login: React.FC<LoginProps> = ({ setIsAuth }) => {
             />
           </div>
 
-          <div className="flex flex-col w-full px-10 my-5 text-left">
-            <label htmlFor="password" className="text-[15px] my-2 text-blue-950">Password</label>
+          <div className="flex flex-col w-full my-5 text-left">
+            <label htmlFor="password" className="text-[14px] md:text-[15px] lg:text-[16px] my-2 text-blue-950">Password</label>
             <div className="flex justify-between border border-blue-950 p-2 rounded bg-white">
               <input
                 type={showPassword ? 'text' : 'password'}
@@ -78,8 +78,8 @@ const Login: React.FC<LoginProps> = ({ setIsAuth }) => {
             </div>
           </div>
 
-          <div className="flex flex-col w-full px-10 my-5 text-left">
-            <label htmlFor="confirm" className="text-[15px] my-2 text-blue-950">Confirm Password</label>
+          <div className="flex flex-col w-full my-5 text-left">
+            <label htmlFor="confirm" className="text-[14px] md:text-[15px] lg:text-[16px] my-2 text-blue-950">Confirm Password</label>
             <div className="flex justify-between border border-blue-950 p-2 rounded bg-white">
               <input
                 type={showConfirmPassword ? 'text' : 'password'}
@@ -93,8 +93,7 @@ const Login: React.FC<LoginProps> = ({ setIsAuth }) => {
               </span>
             </div>
           </div>
-
-          <button type="submit" className="my-10 bg-blue-950 text-white py-1 px-5 rounded">Sign In</button>
+          <button type="submit" className="my-10 bg-blue-950 text-white py-1 px-5 rounded w-full md:w-auto">Sign In</button>
         </form>
       </div>
     </div>
@@ -102,3 +101,8 @@ const Login: React.FC<LoginProps> = ({ setIsAuth }) => {
 }
 
 export default Login;
+
+
+
+
+

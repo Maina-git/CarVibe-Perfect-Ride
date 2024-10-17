@@ -59,20 +59,24 @@ const Home: React.FC = () => {
   ];
 
   return (
-    <div className="h-[420vh]">
-      <div className="relative w-full h-[100vh] flex flex-col justify-center items-center bg-[url('/images/car-6761801_1280.jpg')] bg-center bg-cover bg-no-repeat">
+    <div className="h-auto">
+      
+      <div className="relative w-full h-[60vh] sm:h-[100vh] flex flex-col justify-center items-center bg-[url('/images/car-6761801_1280.jpg')] bg-center bg-cover bg-no-repeat">
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <h1 className="relative z-10 text-white font-bold text-5xl border-[5px] p-5 border-white">
+        <h1 className="relative z-10 text-white font-bold text-3xl sm:text-5xl border-[3px] sm:border-[5px] p-3 sm:p-5 border-white">
           Car Vibe.
         </h1>
-        <p className="relative z-10 text-white text-xl font-bold px-10 my-10">
-        "Driven by Innovation, Powered for Tomorrow"
+        <p className="relative z-10 text-white text-sm sm:text-xl font-bold px-5 sm:px-10 my-5 sm:my-10">
+          "Driven by Innovation, Powered for Tomorrow"
         </p>
       </div>
 
-      <div className="w-full h-[100vh] flex flex-col justify-center items-center">
-        <h2 className="text-3xl font-bold border-[3px] border-blue-950 p-2">About Us</h2>
-        <p className="px-20 py-10 w-[80%] bg-gray-100 rounded my-5 text-blue-950 text-center shadow-lg">
+  
+      <div className="w-full h-auto flex flex-col justify-center items-center p-5 sm:p-10">
+        <h2 className="text-2xl sm:text-3xl font-bold border-[2px] sm:border-[3px] border-blue-950 p-2">
+          About Us
+        </h2>
+        <p className="px-5 sm:px-20 py-5 sm:py-10 w-[90%] sm:w-[80%] bg-gray-100 rounded my-5 text-blue-950 text-center shadow-lg text-sm sm:text-base">
           Here’s a polished message for a website that showcases vehicle images with a focus on providing the
           best display and information: "At Car Vibe., we are dedicated to delivering the most accurate and
           visually stunning representation of vehicles. Whether you're browsing for your dream car or exploring
@@ -83,30 +87,34 @@ const Home: React.FC = () => {
         </p>
       </div>
 
-      <div className="flex flex-col items-center justify-center h-[120vh] bg-gray-200">
-        <h1 className="text-blue-950 text-4xl mt-5">The Three Giants</h1>
-        <p className="text-blue-950 text-xs my-3">German Machine, Engine of Life</p>
+      
+      <div className="flex flex-col items-center justify-center h-auto bg-gray-200 p-5 sm:p-10">
+        <h1 className="text-blue-950 text-2xl sm:text-4xl mt-5">The Three Giants</h1>
+        <p className="text-blue-950 text-xs sm:text-sm my-3">German Machine, Engine of Life</p>
 
-        <div className="flex w-full h-[90%] py-5 justify-around">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 w-full h-auto py-5 justify-around">
           {images.map((item) => (
-            <div key={item.id} className="w-[30%] bg-white rounded p-4">
+            <div key={item.id} className="w-full bg-white rounded p-4 shadow-lg">
               <img src={item.img} alt={item.title} className="w-full h-auto rounded" />
-              <h1 className="text-xl text-blue-950 font-bold mt-2 p-2">{item.title}</h1>
-              <p className="text-sm mt-1 p-2 text-blue-950">{item.info}</p>
-              <button className="px-5 py-2 bg-blue-950 my-5 text-white font-bold text-xs rounded">Show More</button>
+              <h1 className="text-lg sm:text-xl text-blue-950 font-bold mt-2 p-2">{item.title}</h1>
+              <p className="text-xs sm:text-sm mt-1 p-2 text-blue-950">{item.info}</p>
+              <button className="px-3 sm:px-5 py-1 sm:py-2 bg-blue-950 my-5 text-white font-bold text-xs rounded">
+                Show More
+              </button>
             </div>
           ))}
         </div>
       </div>
 
-      <div className="h-[100vh] flex flex-col justify-center items-center text-3xl p-5 bg-blue-950">
-        <h1 className="text-white border-[3px] border-white p-2 my-10 cursor-pointer">SERVICES</h1>
+      {/* Services Section */}
+      <div className="h-auto flex flex-col justify-center items-center text-xl sm:text-3xl p-5 bg-blue-950">
+        <h1 className="text-white border-[2px] sm:border-[3px] border-white p-2 my-5 sm:my-10 cursor-pointer">SERVICES</h1>
 
-        <div className="flex w-full h-[40%] justify-around">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 w-full h-auto justify-around">
           {services.map((item) => (
-            <div key={item.id} className="bg-white rounded p-4 m-2 cursor-pointer shadow-md w-[30%]">
-              <h1 className="text-xl text-blue-950 font-bold">{item.service}</h1>
-              <p className="text-sm text-blue-950">{item.description}</p>
+            <div key={item.id} className="bg-white rounded p-4 m-2 cursor-pointer shadow-md w-full sm:w-[80%] lg:w-[30%]">
+              <h1 className="text-lg sm:text-xl text-blue-950 font-bold">{item.service}</h1>
+              <p className="text-sm sm:text-base text-blue-950">{item.description}</p>
             </div>
           ))}
         </div>
