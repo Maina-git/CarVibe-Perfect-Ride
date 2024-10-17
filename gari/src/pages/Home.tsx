@@ -71,7 +71,6 @@ const Home: React.FC = () => {
         </p>
       </div>
 
-  
       <div className="w-full h-auto flex flex-col justify-center items-center p-5 sm:p-10">
         <h2 className="text-2xl sm:text-3xl font-bold border-[2px] sm:border-[3px] border-blue-950 p-2">
           About Us
@@ -106,13 +105,12 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      {/* Services Section */}
       <div className="h-auto flex flex-col justify-center items-center text-xl sm:text-3xl p-5 bg-blue-950">
         <h1 className="text-white border-[2px] sm:border-[3px] border-white p-2 my-5 sm:my-10 cursor-pointer">SERVICES</h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 w-full h-auto justify-around">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 w-full h-auto justify-around items-center">
           {services.map((item) => (
-            <div key={item.id} className="bg-white rounded p-4 m-2 cursor-pointer shadow-md w-full sm:w-[80%] lg:w-[30%]">
+            <div key={item.id} className="bg-white rounded p-4 m-2 cursor-pointer shadow-md w-full sm:w-[80%] lg:w-[90%] h-[100%]">
               <h1 className="text-lg sm:text-xl text-blue-950 font-bold">{item.service}</h1>
               <p className="text-sm sm:text-base text-blue-950">{item.description}</p>
             </div>
@@ -122,5 +120,4 @@ const Home: React.FC = () => {
     </div>
   );
 };
-
 export default Home;
