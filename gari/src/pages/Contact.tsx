@@ -21,15 +21,12 @@ const Contact: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center gap-10 px-5 w-full max-w-4xl">
           
           <div className="flex justify-center">
-            <img
-              className="h-[150px] w-[150px] md:h-[200px] md:w-[200px] lg:h-[250px] lg:w-[250px] object-cover rounded-full shadow-lg"
+            <img className="h-[150px] w-[150px] md:h-[200px] md:w-[200px] lg:h-[250px] lg:w-[250px] object-cover rounded-full shadow-lg"
               src="/images/WhatsApp Image 2024-10-08 at 21.25.50_22f0cb24.jpg"
-              alt="Profile"
-            />
+              alt="Profile"/>
           </div>
 
-      
-          <div className="text-gray-300 text-[14px] md:text-base lg:text-lg w-full md:w-[60%] leading-relaxed bg-blue-900 p-5 rounded-lg shadow-lg">
+          <div className="text-gray-300 text-[10px] md:text-base lg:text-lg w-full md:w-[60%] leading-relaxed bg-blue-900 p-5 rounded-lg shadow-lg">
             <p>
               Hi, I'm Francis, a passionate web developer who thrives on creativity and problem-solving. What excites me the most about web development is the perfect blend of technical challenges and artistic expression. From writing clean code to designing intuitive user interfaces, every step fuels my passion for the craft.
             </p>
@@ -45,7 +42,6 @@ const Contact: React.FC = () => {
     </div>
   );
 };
-
 export default Contact;
 
 

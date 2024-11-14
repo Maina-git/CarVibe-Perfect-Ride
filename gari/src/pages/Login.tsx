@@ -58,8 +58,7 @@ const Login: React.FC<LoginProps> = ({ setIsAuth }) => {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="border border-blue-950 p-2 outline-none rounded bg-white"
-            />
+              className="border border-blue-950 p-2 outline-none rounded bg-white"/>
           </div>
 
           <div className="flex flex-col w-full my-5 text-left">
@@ -99,7 +98,6 @@ const Login: React.FC<LoginProps> = ({ setIsAuth }) => {
     </div>
   );
 }
-
 export default Login;
 
 

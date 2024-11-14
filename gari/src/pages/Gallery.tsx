@@ -11,7 +11,6 @@ interface ImageData {
   likes: number;
   likedByMe: boolean;
 }
-
 const Gallery: React.FC = () => {
   const [images, setImages] = useState<ImageData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -66,12 +65,12 @@ const Gallery: React.FC = () => {
         a.download = 'downloaded_image.jpg';
         a.click();
       }
-    } catch (error) {
+    } catch (error){
       console.error('Error downloading image:', error);
     }
   };
 
-  if (loading) {
+  if (loading){
     return (
       <div className="h-screen w-full flex flex-col justify-center items-center">
         <div className="p-5 border-[3px] border-blue-950">
@@ -90,17 +89,14 @@ const Gallery: React.FC = () => {
       </div>
     );
   }
-
   return (
     <div className="h-screen w-full bg-gray-200">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 gap-5 p-3 sm:p-5 overflow-y-scroll h-[80vh]">
+      <div className="grid items-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 gap-5 p-3 sm:p-5 overflow-y-scroll h-[80vh]">
         {images.map((image) => (
           <div className="w-full sm:w-[90%] lg:w-[80%] m-3 rounded-[10px]" key={image.id}>
-            <img
-              src={image.url}
+            <img src={image.url}
               alt={`Uploaded ${image.id}`}
-              className="w-full h-48 sm:h-64 lg:h-80 object-cover rounded"
-            />
+              className="w-full h-48 sm:h-64 lg:h-80 object-cover rounded"/>
             <nav className="w-full h-auto p-2 flex justify-between items-center px-3 sm:px-5">
               <button className="bg-blue-950 text-white text-xs sm:text-sm px-4 py-1 rounded" onClick={() => handleDownload(image.url)}>
                 Download
@@ -117,5 +113,4 @@ const Gallery: React.FC = () => {
     </div>
   );
 };
-
 export default Gallery;
